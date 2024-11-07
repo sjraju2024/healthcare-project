@@ -30,9 +30,11 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: List files
+        run: ls -R
+
       - name: Terraform Plan
         run: terraform plan -out=tfplan -var-file=env/dev.tfvars
-        working-directory: ./Terraform
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
