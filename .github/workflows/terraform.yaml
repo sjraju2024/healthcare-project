@@ -35,6 +35,9 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: List files
+        run: ls -R
+
       - name: Terraform Plan
         run: terraform plan -out=tfplan -var-file=/Terraform/env/dev.tfvars
 
