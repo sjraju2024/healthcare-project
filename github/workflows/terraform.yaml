@@ -29,12 +29,10 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
-        
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan -var-file=env/dev.tfvars
+        working-directory: ./Terraform
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
