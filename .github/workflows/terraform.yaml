@@ -26,8 +26,8 @@ jobs:
         with:
           terraform_version: 1.0.0
           
-      - name: Check directory contents
-        run: ls -l
+      - name: List files in env directory
+        run: ls -l ./Terraform/env
         
       - name: List files in Terraform directory
         run: ls -R ./Terraform 
@@ -42,11 +42,13 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform Plan
+      - name: Run Terraform Plan with Debug Logging
         run: terraform plan -out=tfplan -var-file=./Terraform/env/dev.tfvars
+        env:
+          TF_LOG: DEBUG
+          TF_LOG_PATH: terraform_debug.log  # Logs to a file for debugging
         working-directory: ./Terraform
        
-
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve tfplan
