@@ -36,7 +36,6 @@ jobs:
         run: terraform init
         working-directory: ./Terraform
         
-
       - name: Terraform Format
         run: terraform fmt -check
 
