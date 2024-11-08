@@ -31,6 +31,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./Terraform
         
 
       - name: Terraform Format
@@ -44,6 +45,7 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan -var-file=./Terraform/env/dev.tfvars
+        working-directory: ./Terraform
        
 
       - name: Terraform Apply
