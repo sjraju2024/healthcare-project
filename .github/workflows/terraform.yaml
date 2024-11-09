@@ -35,6 +35,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./Terraform/modules/vpc
         
 
       - name: Run terraform get to download modules
