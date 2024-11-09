@@ -38,7 +38,7 @@ jobs:
 
       - name: Run terraform get to download modules
         run: terraform get
-        working-directory: ./Terraform
+        
         
       - name: Terraform Format
         run: terraform fmt -check
