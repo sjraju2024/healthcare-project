@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 module "vpc" {
-  source       = "./modules/vpc"
+  source       = ".Terraform/modules/vpc"
   public_az   = var.public_az
   private_az  = var.private_az
 }
 
 module "eks" {
-  source       = "./modules/eks"
+  source       = ".Terraform/modules/eks"
   cluster_name = var.cluster_name
   subnet_ids   = [module.vpc.public_subnet_id, module.vpc.private_subnet_id]
   desired_size = var.desired_size
@@ -18,6 +18,6 @@ module "eks" {
 }
 
 module "ecr" {
-  source   = "./modules/ecr"
+  source   = ".Terraform/modules/ecr"
   repo_name = var.repo_name
 }
