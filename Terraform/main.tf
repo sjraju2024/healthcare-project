@@ -17,7 +17,7 @@ module "eks" {
   min_size     = var.min_size
 }
 
-module "ecr" {
-  source   = "./Terraform/modules/ecr"
+module "ecs" {
+  source   = "./Terraform/modules/ecs"
   repo_name = var.repo_name
 }
