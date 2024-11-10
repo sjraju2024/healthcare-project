@@ -31,7 +31,10 @@ jobs:
         run: ls -l ./Terraform/env
         
       - name: List files in Terraform directory
-        run: ls -R ./Terraform 
+        run: ls -R ./Terraform
+
+      - name: give file permission
+        run: chmod -R 777 ./Terraform
 
       - name: Terraform Init
         run: terraform init
