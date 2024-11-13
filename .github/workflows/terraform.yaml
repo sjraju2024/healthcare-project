@@ -54,7 +54,7 @@ jobs:
         env:
           TF_LOG: DEBUG
           TF_LOG_PATH: terraform_debug.log  # Logs to a file for debugging
-        working-directory: ./Terraform
+        
        
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
