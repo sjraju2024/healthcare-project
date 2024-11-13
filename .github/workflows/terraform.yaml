@@ -50,7 +50,7 @@ jobs:
         run: terraform validate
 
       - name: Run Terraform Plan with Debug Logging
-        run: terraform plan -out=tfplan -var-file=dev.tfvars
+        run: terraform plan -out=tfplan -var-file=./Terraform/env/dev.tfvars
         env:
           TF_LOG: DEBUG
           TF_LOG_PATH: terraform_debug.log  # Logs to a file for debugging
